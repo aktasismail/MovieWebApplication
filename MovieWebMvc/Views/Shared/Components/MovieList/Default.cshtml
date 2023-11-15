@@ -1,0 +1,36 @@
+﻿@model IEnumerable<EntityLayer.Movies>
+<div class="popular_2 row mt-4">
+    <div class="tab-content">
+        <div class="tab-pane active" id="home">
+            <div class="popular_2i row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6">
+                        <div class="popular_2i1 row">
+                            <div class="col-md-4 col-4">
+                                <div class="popular_2i1lm position-relative clearfix">
+                                    <div class="popular_2i1lm1 clearfix">
+                                        <div class="grid">
+                                            <figure class="effect-jazz mb-0">
+                                                <a href="#"><img src="@item.ImageUrl" class="w-100" alt="img25"></a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-8">
+                                <div class="popular_2i1r">
+                                    <h5><a class="col_red" href="/Home/MovieDetails/@item.MovieId">@item.Moviename</a></h5>
+                                    <h6>Yönetmen @item.Director</h6>
+                                    <h6> Imdb @item.ImdbRate  Year : @item.Year <span class="ms-2">Film süresi: @item.Duration</span></h6>
+                                    <p>@item.MovieDetail.Substring(0,120)</p>
+                                    <h6 class="mb-0"><a class="button" href="Home/MovieDetails/@item.GenreId"> İzle</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

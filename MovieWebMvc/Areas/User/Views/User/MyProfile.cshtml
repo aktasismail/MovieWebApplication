@@ -1,0 +1,19 @@
+﻿@using EntityLayer
+@model IEnumerable<EntityLayer.Comments>
+@{
+    ViewData["Title"] = "MyProfile";
+}
+<div class="bg-dark p-4">
+    <hr>
+    Kullanıcı Adı:   @User.Identity.Name
+    <div id="comments">
+        <h5 class="my-4">Yorumlar</h5>
+        <ul class="list-group">
+            @foreach (var comment in Model)
+            {
+                <li class="list-group-item"><i class="bi bi-chat-right-text-fill"></i> @comment.CommentText <i><u>[@comment.Tittle]</u></i></li>
+                <li class="list-group-item"><a class="btn btn-danger" href="/User/User/DeleteComment/@comment.CommentId">Yorumu Sil</a></li>
+            }
+        </ul>
+    </div>
+</div>

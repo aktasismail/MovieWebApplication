@@ -1,0 +1,14 @@
+﻿@model IEnumerable<EntityLayer.Movies>
+<div class="mt-5 my-2">
+    <table class="table text-light">
+        <h3>Vizyondakiler</h3>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><a href="/Home/MovieDetails/@item.GenreId">@item.Moviename</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

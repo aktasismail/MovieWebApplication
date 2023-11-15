@@ -1,0 +1,9 @@
+﻿@model IEnumerable<EntityLayer.Genres>
+<ul class="dropdown-menu trend_1" aria-labelledby="navbarDropdown">
+    @foreach (var item in Model)
+    {
+        <li>
+            <a class="dropdown-item" href="/Home/GetByGenre?genreId=@item.GenreId">@item.MovieGenre</a>
+        </li>
+    }
+ </ul>

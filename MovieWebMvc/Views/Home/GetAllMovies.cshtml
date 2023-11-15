@@ -1,0 +1,50 @@
+﻿@model MovieListVM
+
+<div class="popular_2 row mt-4">
+    <div class="tab-content">
+        @await Component.InvokeAsync("MovieFiltered")
+        <div class="tab-pane active" id="home">
+            <div class="popular_2i row">
+                @foreach (var item in Model.Movies)
+                {
+                    <div class="col-md-6">
+                        <div class="popular_2i1 row">
+                            <div class="col-md-4 col-4">
+                                <div class="popular_2i1lm position-relative clearfix">
+                                    <div class="popular_2i1lm1 clearfix">
+                                        <div class="grid">
+                                            <figure class="effect-jazz mb-0">
+                                                <a href="#"><img src="@item.ImageUrl" class="w-100" alt="img25"></a>
+                                            </figure>
+                                        </div>  
+                                    </div>
+                                    <div class="popular_2i1lm2 position-absolute top-0 w-100 text-center clearfix">
+                                        <ul>
+                                            <li class="d-inline-block"><a href="#"><i class="fa fa-link col_red"></i></a></li>
+                                            <li class="d-inline-block"><a href="#"><i class="fa fa-search col_red"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-8">
+                                <div class="popular_2i1r">
+                                    <h5><a class="col_red" href="#">@item.Moviename</a></h5>
+                                    <h6>Yönetmen @item.Director</h6>
+                                    <h6> Imdb @item.ImdbRate  Year : @item.Year <span class="ms-2">Film süresi: @item.Duration</span></h6>
+                                    <p>@item.MovieDetail.Substring(0,120)</p>
+                                    <h6 class="mb-0"><a class="button" href="#"> İzle</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+         <div class="text-center">
+            <div page-model="@Model?.Pagination" page-action="GetAllMovies" page-classes-enabled="true" page-class="btn"
+                 page-class-normal="btn-outline-dark" page-class-selected="btn-secondary" class="btn-group">
+            </div>
+        </div>
+    </div>
+</div>
+
